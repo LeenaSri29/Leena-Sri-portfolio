@@ -1,12 +1,459 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState, useEffect } from 'react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Separator } from "@/components/ui/separator";
+import { Download, ExternalLink, Github, Linkedin, Mail, Phone, MapPin, Code, Brain, Database, ChevronDown, Send, Globe } from 'lucide-react';
+import { toast } from "@/hooks/use-toast";
 
 const Index = () => {
+  const [activeSection, setActiveSection] = useState('home');
+  const [typedText, setTypedText] = useState('');
+  const [currentPassion, setCurrentPassion] = useState(0);
+  
+  const passions = [
+    "AI & Machine Learning 🤖",
+    "Data Analysis 📊", 
+    "Python Programming 🐍"
+  ];
+
+  useEffect(() => {
+    const passion = passions[currentPassion];
+    let index = 0;
+    
+    const typeInterval = setInterval(() => {
+      if (index < passion.length) {
+        setTypedText(passion.slice(0, index + 1));
+        index++;
+      } else {
+        setTimeout(() => {
+          setTypedText('');
+          setCurrentPassion((prev) => (prev + 1) % passions.length);
+        }, 2000);
+        clearInterval(typeInterval);
+      }
+    }, 100);
+
+    return () => clearInterval(typeInterval);
+  }, [currentPassion]);
+
+  const scrollToSection = (sectionId: string) => {
+    setActiveSection(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for your message. I'll get back to you soon!",
+    });
+  };
+
+  const skills = [
+    "Python", "SQL", "Java (Basics)", "Machine Learning (Basics)", 
+    "Data Visualization", "Power BI", "Artificial Intelligence Basics",
+    "HTML", "CSS", "JavaScript", "Excel"
+  ];
+
+  const projects = [
+    {
+      title: "🍴 Foodielicious Cart Flow App",
+      description: "An interactive food ordering and cart flow web application built for user-friendly restaurant ordering experiences. Developed using Lovable AI with no-code approach, featuring modern UI/UX design and seamless cart management.",
+      liveUrl: "https://foodielicious-cart-flow.lovable.app/login",
+      codeUrl: "#",
+      tags: ["React", "TypeScript", "UI/UX", "No-Code AI"]
+    },
+    {
+      title: "🔐 Digital Locker & Timer",
+      description: "A secure digital locker application with timer functionality for managing digital assets and time-based operations.",
+      liveUrl: "https://leenasri29.github.io/digital-locker/",
+      codeUrl: "https://github.com/LeenaSri29/digital-locker",
+      tags: ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      title: "🔢 Advanced Calculator",
+      description: "A feature-rich calculator application with advanced mathematical operations and user-friendly interface.",
+      liveUrl: "https://leenasri29.github.io/Calculator-for-Micro-IT/",
+      codeUrl: "https://github.com/LeenaSri29/Calculator-for-Micro-IT",
+      tags: ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      title: "🦋 Marvel Butterfly Classification",
+      description: "Machine learning project using deep learning and TensorFlow for butterfly species classification with computer vision techniques.",
+      liveUrl: "#",
+      codeUrl: "#",
+      tags: ["Python", "TensorFlow", "Deep Learning", "Computer Vision"]
+    }
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-950 text-white">
+      {/* Header */}
+      <header className="fixed top-0 w-full bg-black/80 backdrop-blur-md border-b border-pink-500/20 z-50">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center font-bold text-white">
+                TLS
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-pink-400">Thupakula Leena Sri</h1>
+                <p className="text-sm text-gray-400">AI & ML Enthusiast</p>
+              </div>
+            </div>
+            
+            <nav className="hidden md:flex space-x-6">
+              {['home', 'about', 'skills', 'experience', 'projects', 'education', 'contact'].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`capitalize px-4 py-2 rounded-lg transition-all hover:bg-pink-500/20 hover:text-pink-400 ${
+                    activeSection === section ? 'bg-pink-500/30 text-pink-400' : 'text-gray-300'
+                  }`}
+                >
+                  {section}
+                </button>
+              ))}
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section id="home" className="pt-32 pb-20 px-6">
+        <div className="container mx-auto text-center">
+          <div className="mb-8">
+            <img 
+              src="/lovable-uploads/c701e223-8c3e-4739-9371-f82f3c2bd76c.png" 
+              alt="Thupakula Leena Sri"
+              className="w-48 h-48 rounded-full mx-auto mb-6 border-4 border-pink-500 shadow-2xl object-cover"
+            />
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text text-transparent">
+            Thupakula Leena Sri
+          </h1>
+          
+          <div className="text-2xl md:text-3xl mb-8 h-12">
+            <span className="text-gray-300">Passionate about </span>
+            <span className="text-pink-400 font-semibold">{typedText}</span>
+            <span className="animate-pulse">|</span>
+          </div>
+          
+          <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+            A passionate and driven student specializing in Artificial Intelligence and Machine Learning, 
+            with a strong foundation in Python programming and deep interest in data analytics.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button 
+              onClick={() => scrollToSection('projects')}
+              className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all hover:scale-105"
+            >
+              View My Work
+            </Button>
+            <Button 
+              variant="outline" 
+              className="border-pink-500 text-pink-400 hover:bg-pink-500/10 px-8 py-3 rounded-full text-lg font-semibold"
+              onClick={() => window.open('https://drive.google.com/file/d/1o_lvrxPiM2SSthMRs_efxJvR4K-Itreb/view?usp=drivesdk', '_blank')}
+            >
+              <Download className="mr-2 h-5 w-5" />
+              Download Resume
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 px-6 bg-black/30">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">About Me</h2>
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:shadow-2xl hover:shadow-pink-500/20">
+              <CardContent className="p-8">
+                <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                  I'm a passionate and driven student specializing in Artificial Intelligence and Machine Learning 🤖, 
+                  with a strong foundation in Python programming 🐍 and a deep interest in data analytics 📊. 
+                  I enjoy turning complex datasets into meaningful insights and using intelligent algorithms to solve real-world problems 🌍.
+                </p>
+                <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                  With basics in Python libraries like Pandas 🐼, NumPy 🔢, Matplotlib 📈, and Scikit-learn 📘, 
+                  I'm exploring machine learning frameworks to broaden my skill set.
+                </p>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  I believe in continuous learning 📚 and strive to apply AI and data science ethically ✨ and creatively 🎨 
+                  to make a positive impact. My goal is to become a data-driven AI professional 🚀 capable of building 
+                  scalable, smart solutions 💡 across industries.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 px-6">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">Skills & Technologies</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                className="bg-gray-900/50 border border-pink-500/30 rounded-lg p-4 text-center hover:bg-pink-500/10 hover:border-pink-500 hover:scale-105 transition-all cursor-pointer"
+              >
+                <span className="text-white font-medium">{skill}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-20 px-6 bg-black/30">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">Experience</h2>
+          <div className="max-w-4xl mx-auto space-y-6">
+            {[
+              {
+                title: "Java Programming Internship",
+                company: "MicroIT",
+                duration: "May 2025 - June 2025",
+                description: "Completed a comprehensive 1-month Java programming internship focusing on core Java concepts and practical applications."
+              },
+              {
+                title: "Python Programming",
+                company: "PROG MASTER",
+                duration: "Jan 2024 - Feb 2024",
+                description: "A practical 2-month internship focused on building strong Python foundations with real-time mini-projects including password generator, file sorter, and weather checker using APIs."
+              },
+              {
+                title: "Web Development",
+                company: "CSEdge",
+                duration: "Mar 2024 - Apr 2024",
+                description: "Hands-on web development internship building responsive student management system with HTML, CSS, and JavaScript."
+              },
+              {
+                title: "Open Source Contributor",
+                company: "GirlScript Summer of Code",
+                duration: "May 2024 - June 2024",
+                description: "Remote contributor to open-source repositories, fixing bugs and adding features to Python and frontend projects."
+              },
+              {
+                title: "SQL Workshop",
+                company: "Infosys Springboard",
+                duration: "Aug 2024 - Sep 2024",
+                description: "Participated in SQL workshop solving real-time business queries using relational databases with focus on banking applications."
+              }
+            ].map((exp, index) => (
+              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:shadow-lg hover:shadow-pink-500/20">
+                <CardHeader>
+                  <CardTitle className="text-pink-400">{exp.title}</CardTitle>
+                  <CardDescription className="text-purple-300 font-medium">{exp.company} • {exp.duration}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">{exp.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-6">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">Projects</h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {projects.map((project, index) => (
+              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
+                <CardHeader>
+                  <CardTitle className="text-pink-400">{project.title}</CardTitle>
+                  <CardDescription className="text-gray-300">{project.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, tagIndex) => (
+                      <Badge key={tagIndex} variant="secondary" className="bg-pink-500/20 text-pink-300">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                  <div className="flex gap-4">
+                    <Button 
+                      size="sm" 
+                      className="bg-pink-500 hover:bg-pink-600"
+                      onClick={() => window.open(project.liveUrl, '_blank')}
+                    >
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Live Demo
+                    </Button>
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="border-pink-500 text-pink-400 hover:bg-pink-500/10"
+                      onClick={() => window.open(project.codeUrl, '_blank')}
+                    >
+                      <Code className="mr-2 h-4 w-4" />
+                      View Code
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="py-20 px-6 bg-black/30">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">Education</h2>
+          <div className="max-w-4xl mx-auto space-y-6">
+            {[
+              {
+                degree: "B.Tech - Computer Science (AI & ML)",
+                institution: "Siddartha Institute of Science and Technology",
+                duration: "2022 - Pursuing",
+                description: "Currently pursuing Bachelor's degree with specialization in Artificial Intelligence and Machine Learning. Actively participated in technical events, won 1st Prize in Paper Presentation and 3rd Prize in PPT competition."
+              },
+              {
+                degree: "Intermediate (MPC)",
+                institution: "Sri Chaitanya Junior College, Tirupati",
+                duration: "2020 - 2022",
+                description: "Completed Intermediate with outstanding 91% score, demonstrating strong academic performance in Mathematics, Physics, and Chemistry."
+              },
+              {
+                degree: "SSC",
+                institution: "Sri Venkateswara Children's High School, Tirupati",
+                duration: "2020",
+                description: "Completed Secondary School Certificate with exceptional 99% score, reflecting excellent foundational academic performance."
+              }
+            ].map((edu, index) => (
+              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:shadow-lg hover:shadow-pink-500/20">
+                <CardHeader>
+                  <CardTitle className="text-pink-400">{edu.degree}</CardTitle>
+                  <CardDescription className="text-purple-300 font-medium">{edu.institution} • {edu.duration}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">{edu.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Language Proficiency */}
+      <section className="py-20 px-6">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">
+            <Globe className="inline-block mr-3 mb-1" />
+            Language Proficiency
+          </h2>
+          <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
+            {[
+              { language: "Telugu", level: "Native fluency", description: "Can read, write, and speak professionally" },
+              { language: "English", level: "Proficient", description: "Can read, write, and speak with professional fluency" },
+              { language: "Hindi", level: "Conversational", description: "Can read, write, and speak with liberal fluency" }
+            ].map((lang, index) => (
+              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105">
+                <CardHeader>
+                  <CardTitle className="text-pink-400">{lang.language}</CardTitle>
+                  <CardDescription className="text-purple-300 font-medium">{lang.level}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">{lang.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-6 bg-black/30">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">Connect With Me</h2>
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+            <div>
+              <h3 className="text-2xl font-semibold mb-6 text-pink-400">Get In Touch</h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <Mail className="h-5 w-5 text-pink-400" />
+                  <span className="text-gray-300">leenathupakula05@gmail.com</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Phone className="h-5 w-5 text-pink-400" />
+                  <span className="text-gray-300">6304832820</span>
+                </div>
+                <div className="flex space-x-4 mt-6">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="border-pink-500 text-pink-400 hover:bg-pink-500/10"
+                    onClick={() => window.open('https://www.linkedin.com/in/leena-sri-thupakula-8002302a8', '_blank')}
+                  >
+                    <Linkedin className="mr-2 h-4 w-4" />
+                    LinkedIn
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    className="border-pink-500 text-pink-400 hover:bg-pink-500/10"
+                    onClick={() => window.open('https://github.com/LeenaSri29', '_blank')}
+                  >
+                    <Github className="mr-2 h-4 w-4" />
+                    GitHub
+                  </Button>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-2xl font-semibold mb-6 text-pink-400">Send a Message</h3>
+              <form onSubmit={handleContactSubmit} className="space-y-4">
+                <Input 
+                  placeholder="Your Name" 
+                  className="bg-gray-900/50 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-500"
+                />
+                <Input 
+                  type="email" 
+                  placeholder="Your Email" 
+                  className="bg-gray-900/50 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-500"
+                />
+                <Textarea 
+                  placeholder="Your Message" 
+                  rows={4}
+                  className="bg-gray-900/50 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-500"
+                />
+                <Button 
+                  type="submit" 
+                  className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+                >
+                  <Send className="mr-2 h-4 w-4" />
+                  Send Message
+                </Button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-6 border-t border-pink-500/20">
+        <div className="container mx-auto text-center">
+          <p className="text-gray-400">
+            © 2024 Thupakula Leena Sri. Made with ❤️ and passion for AI & ML.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
