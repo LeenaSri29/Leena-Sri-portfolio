@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -57,9 +56,17 @@ const Index = () => {
   };
 
   const skills = [
-    "Python", "SQL", "Java (Basics)", "Machine Learning (Basics)", 
-    "Data Visualization", "Power BI", "Artificial Intelligence Basics",
-    "HTML", "CSS", "JavaScript", "Excel"
+    { name: "Python", level: 85 },
+    { name: "SQL", level: 80 },
+    { name: "Java (Basics)", level: 60 },
+    { name: "Machine Learning (Basics)", level: 70 },
+    { name: "Data Visualization", level: 75 },
+    { name: "Power BI", level: 70 },
+    { name: "Artificial Intelligence Basics", level: 65 },
+    { name: "HTML", level: 85 },
+    { name: "CSS", level: 80 },
+    { name: "JavaScript", level: 75 },
+    { name: "Excel", level: 90 }
   ];
 
   const projects = [
@@ -69,6 +76,13 @@ const Index = () => {
       liveUrl: "https://foodielicious-cart-flow.lovable.app/login",
       codeUrl: "#",
       tags: ["React", "TypeScript", "UI/UX", "No-Code AI"]
+    },
+    {
+      title: "🔐 Password Generator",
+      description: "A secure password generator tool that creates strong, customizable passwords with options for length, character types, and complexity. Built with user-friendly interface and real-time password strength validation.",
+      liveUrl: "https://leenasri29.github.io/Password-Generator-for-Micro-IT/",
+      codeUrl: "https://github.com/LeenaSri29/Password-Generator-for-Micro-IT",
+      tags: ["HTML", "CSS", "JavaScript", "Security"]
     },
     {
       title: "🔐 Digital Locker & Timer",
@@ -94,13 +108,20 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-950 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-950 text-white relative overflow-hidden">
+      {/* Animated background lights */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-2000"></div>
+      </div>
+
       {/* Header */}
       <header className="fixed top-0 w-full bg-black/80 backdrop-blur-md border-b border-pink-500/20 z-50">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center font-bold text-white">
+              <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center font-bold text-white shadow-lg shadow-pink-500/25">
                 TLS
               </div>
               <div>
@@ -114,8 +135,8 @@ const Index = () => {
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`capitalize px-4 py-2 rounded-lg transition-all hover:bg-pink-500/20 hover:text-pink-400 ${
-                    activeSection === section ? 'bg-pink-500/30 text-pink-400' : 'text-gray-300'
+                  className={`capitalize px-4 py-2 rounded-lg transition-all hover:bg-pink-500/20 hover:text-pink-400 hover:shadow-lg hover:shadow-pink-500/25 ${
+                    activeSection === section ? 'bg-pink-500/30 text-pink-400 shadow-lg shadow-pink-500/25' : 'text-gray-300'
                   }`}
                 >
                   {section}
@@ -127,13 +148,13 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="pt-32 pb-20 px-6">
+      <section id="home" className="pt-32 pb-20 px-6 relative">
         <div className="container mx-auto text-center">
           <div className="mb-8">
             <img 
               src="/lovable-uploads/c701e223-8c3e-4739-9371-f82f3c2bd76c.png" 
               alt="Thupakula Leena Sri"
-              className="w-48 h-48 rounded-full mx-auto mb-6 border-4 border-pink-500 shadow-2xl object-cover"
+              className="w-48 h-48 rounded-full mx-auto mb-6 border-4 border-pink-500 shadow-2xl shadow-pink-500/30 object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
           
@@ -151,17 +172,39 @@ const Index = () => {
             A passionate and driven student specializing in Artificial Intelligence and Machine Learning, 
             with a strong foundation in Python programming and deep interest in data analytics.
           </p>
+
+          {/* Social Media Icons */}
+          <div className="flex justify-center space-x-6 mb-12">
+            <button
+              onClick={() => window.open('https://www.linkedin.com/in/leena-sri-thupakula-8002302a8', '_blank')}
+              className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
+            >
+              <Linkedin className="h-7 w-7 text-white" />
+            </button>
+            <button
+              onClick={() => window.open('https://github.com/LeenaSri29', '_blank')}
+              className="w-14 h-14 bg-gradient-to-r from-gray-700 to-gray-800 rounded-full flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300"
+            >
+              <Github className="h-7 w-7 text-white" />
+            </button>
+            <button
+              onClick={() => window.open('mailto:leenathupakula05@gmail.com', '_blank')}
+              className="w-14 h-14 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-red-500/25 transition-all duration-300"
+            >
+              <Mail className="h-7 w-7 text-white" />
+            </button>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               onClick={() => scrollToSection('projects')}
-              className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all hover:scale-105"
+              className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-pink-500/25"
             >
               View My Work
             </Button>
             <Button 
               variant="outline" 
-              className="border-pink-500 text-pink-400 hover:bg-pink-500/10 px-8 py-3 rounded-full text-lg font-semibold"
+              className="border-pink-500 text-pink-400 hover:bg-pink-500/10 px-8 py-3 rounded-full text-lg font-semibold hover:shadow-lg hover:shadow-pink-500/25 transition-all"
               onClick={() => window.open('https://drive.google.com/file/d/1o_lvrxPiM2SSthMRs_efxJvR4K-Itreb/view?usp=drivesdk', '_blank')}
             >
               <Download className="mr-2 h-5 w-5" />
@@ -172,11 +215,11 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-black/30">
+      <section id="about" className="py-20 px-6 bg-black/30 relative">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">About Me</h2>
           <div className="max-w-4xl mx-auto">
-            <Card className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:shadow-2xl hover:shadow-pink-500/20">
+            <Card className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:shadow-2xl hover:shadow-pink-500/20 hover:scale-105 duration-300">
               <CardContent className="p-8">
                 <p className="text-lg text-gray-300 leading-relaxed mb-6">
                   I'm a passionate and driven student specializing in Artificial Intelligence and Machine Learning 🤖, 
@@ -199,16 +242,25 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-6">
+      <section id="skills" className="py-20 px-6 relative">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">Skills & Technologies</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {skills.map((skill, index) => (
               <div
                 key={index}
-                className="bg-gray-900/50 border border-pink-500/30 rounded-lg p-4 text-center hover:bg-pink-500/10 hover:border-pink-500 hover:scale-105 transition-all cursor-pointer"
+                className="bg-gray-900/50 border border-pink-500/30 rounded-lg p-6 hover:bg-pink-500/10 hover:border-pink-500 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300 cursor-pointer"
               >
-                <span className="text-white font-medium">{skill}</span>
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-white font-medium text-lg">{skill.name}</span>
+                  <span className="text-pink-400 font-semibold">{skill.level}%</span>
+                </div>
+                <div className="w-full bg-gray-700 rounded-full h-3">
+                  <div 
+                    className="bg-gradient-to-r from-pink-500 to-purple-600 h-3 rounded-full transition-all duration-1000 ease-out"
+                    style={{ width: `${skill.level}%` }}
+                  ></div>
+                </div>
               </div>
             ))}
           </div>
@@ -216,7 +268,7 @@ const Index = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 px-6 bg-black/30">
+      <section id="experience" className="py-20 px-6 bg-black/30 relative">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">Experience</h2>
           <div className="max-w-4xl mx-auto space-y-6">
@@ -267,12 +319,12 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6">
+      <section id="projects" className="py-20 px-6 relative">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">Projects</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {projects.map((project, index) => (
-              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
+              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20 duration-300">
                 <CardHeader>
                   <CardTitle className="text-pink-400">{project.title}</CardTitle>
                   <CardDescription className="text-gray-300">{project.description}</CardDescription>
@@ -280,7 +332,7 @@ const Index = () => {
                 <CardContent>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, tagIndex) => (
-                      <Badge key={tagIndex} variant="secondary" className="bg-pink-500/20 text-pink-300">
+                      <Badge key={tagIndex} variant="secondary" className="bg-pink-500/20 text-pink-300 hover:bg-pink-500/30 transition-colors">
                         {tag}
                       </Badge>
                     ))}
@@ -288,7 +340,7 @@ const Index = () => {
                   <div className="flex gap-4">
                     <Button 
                       size="sm" 
-                      className="bg-pink-500 hover:bg-pink-600"
+                      className="bg-pink-500 hover:bg-pink-600 hover:shadow-lg hover:shadow-pink-500/25 transition-all"
                       onClick={() => window.open(project.liveUrl, '_blank')}
                     >
                       <ExternalLink className="mr-2 h-4 w-4" />
@@ -297,7 +349,7 @@ const Index = () => {
                     <Button 
                       size="sm" 
                       variant="outline" 
-                      className="border-pink-500 text-pink-400 hover:bg-pink-500/10"
+                      className="border-pink-500 text-pink-400 hover:bg-pink-500/10 hover:shadow-lg hover:shadow-pink-500/25 transition-all"
                       onClick={() => window.open(project.codeUrl, '_blank')}
                     >
                       <Code className="mr-2 h-4 w-4" />
@@ -312,7 +364,7 @@ const Index = () => {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-20 px-6 bg-black/30">
+      <section id="education" className="py-20 px-6 bg-black/30 relative">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">Education</h2>
           <div className="max-w-4xl mx-auto space-y-6">
@@ -351,7 +403,7 @@ const Index = () => {
       </section>
 
       {/* Language Proficiency */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 relative">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">
             <Globe className="inline-block mr-3 mb-1" />
@@ -363,7 +415,7 @@ const Index = () => {
               { language: "English", level: "Proficient", description: "Can read, write, and speak with professional fluency" },
               { language: "Hindi", level: "Conversational", description: "Can read, write, and speak with liberal fluency" }
             ].map((lang, index) => (
-              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105">
+              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-lg hover:shadow-pink-500/20 duration-300">
                 <CardHeader>
                   <CardTitle className="text-pink-400">{lang.language}</CardTitle>
                   <CardDescription className="text-purple-300 font-medium">{lang.level}</CardDescription>
@@ -378,18 +430,18 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-black/30">
+      <section id="contact" className="py-20 px-6 bg-black/30 relative">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">Connect With Me</h2>
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-pink-400">Get In Touch</h3>
               <div className="space-y-4">
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-3 hover:bg-pink-500/10 p-3 rounded-lg transition-all duration-300">
                   <Mail className="h-5 w-5 text-pink-400" />
                   <span className="text-gray-300">leenathupakula05@gmail.com</span>
                 </div>
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-3 hover:bg-pink-500/10 p-3 rounded-lg transition-all duration-300">
                   <Phone className="h-5 w-5 text-pink-400" />
                   <span className="text-gray-300">6304832820</span>
                 </div>
@@ -397,7 +449,7 @@ const Index = () => {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="border-pink-500 text-pink-400 hover:bg-pink-500/10"
+                    className="border-pink-500 text-pink-400 hover:bg-pink-500/10 hover:shadow-lg hover:shadow-pink-500/25 transition-all"
                     onClick={() => window.open('https://www.linkedin.com/in/leena-sri-thupakula-8002302a8', '_blank')}
                   >
                     <Linkedin className="mr-2 h-4 w-4" />
@@ -406,7 +458,7 @@ const Index = () => {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="border-pink-500 text-pink-400 hover:bg-pink-500/10"
+                    className="border-pink-500 text-pink-400 hover:bg-pink-500/10 hover:shadow-lg hover:shadow-pink-500/25 transition-all"
                     onClick={() => window.open('https://github.com/LeenaSri29', '_blank')}
                   >
                     <Github className="mr-2 h-4 w-4" />
@@ -421,21 +473,21 @@ const Index = () => {
               <form onSubmit={handleContactSubmit} className="space-y-4">
                 <Input 
                   placeholder="Your Name" 
-                  className="bg-gray-900/50 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-500"
+                  className="bg-gray-900/50 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-500 hover:border-pink-500/60 transition-all"
                 />
                 <Input 
                   type="email" 
                   placeholder="Your Email" 
-                  className="bg-gray-900/50 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-500"
+                  className="bg-gray-900/50 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-500 hover:border-pink-500/60 transition-all"
                 />
                 <Textarea 
                   placeholder="Your Message" 
                   rows={4}
-                  className="bg-gray-900/50 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-500"
+                  className="bg-gray-900/50 border-pink-500/30 text-white placeholder-gray-400 focus:border-pink-500 hover:border-pink-500/60 transition-all"
                 />
                 <Button 
                   type="submit" 
-                  className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+                  className="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 hover:shadow-lg hover:shadow-pink-500/25 transition-all"
                 >
                   <Send className="mr-2 h-4 w-4" />
                   Send Message
@@ -447,7 +499,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-pink-500/20">
+      <footer className="py-8 px-6 border-t border-pink-500/20 relative">
         <div className="container mx-auto text-center">
           <p className="text-gray-400">
             © 2024 Thupakula Leena Sri. Made with ❤️ and passion for AI & ML.
