@@ -109,11 +109,14 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-pink-950 text-white relative overflow-hidden">
-      {/* Animated background lights */}
+      {/* Enhanced animated background lights */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        <div className="absolute top-10 right-10 w-32 h-32 bg-pink-400/8 rounded-full blur-2xl animate-pulse delay-3000"></div>
+        <div className="absolute bottom-10 left-10 w-48 h-48 bg-purple-400/6 rounded-full blur-2xl animate-pulse delay-4000"></div>
+        <div className="absolute top-1/3 right-1/3 w-80 h-80 bg-pink-300/5 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
       {/* Header */}
@@ -150,11 +153,13 @@ const Index = () => {
       {/* Hero Section */}
       <section id="home" className="pt-32 pb-20 px-6 relative">
         <div className="container mx-auto text-center">
-          <div className="mb-8">
+          <div className="mb-8 relative">
+            {/* Pink glow background for profile */}
+            <div className="absolute inset-0 w-52 h-52 mx-auto bg-gradient-to-r from-pink-500/30 to-purple-600/30 rounded-full blur-xl"></div>
             <img 
               src="/lovable-uploads/c701e223-8c3e-4739-9371-f82f3c2bd76c.png" 
               alt="Thupakula Leena Sri"
-              className="w-48 h-48 rounded-full mx-auto mb-6 border-4 border-pink-500 shadow-2xl shadow-pink-500/30 object-cover hover:scale-105 transition-transform duration-300"
+              className="w-48 h-48 rounded-full mx-auto mb-6 border-4 border-pink-500 shadow-2xl shadow-pink-500/30 object-cover hover:scale-105 transition-transform duration-300 relative z-10"
             />
           </div>
           
@@ -218,25 +223,55 @@ const Index = () => {
       <section id="about" className="py-20 px-6 bg-black/30 relative">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">About Me</h2>
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:shadow-2xl hover:shadow-pink-500/20 hover:scale-105 duration-300">
-              <CardContent className="p-8">
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                  I'm a passionate and driven student specializing in Artificial Intelligence and Machine Learning 🤖, 
-                  with a strong foundation in Python programming 🐍 and a deep interest in data analytics 📊. 
-                  I enjoy turning complex datasets into meaningful insights and using intelligent algorithms to solve real-world problems 🌍.
-                </p>
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                  With basics in Python libraries like Pandas 🐼, NumPy 🔢, Matplotlib 📈, and Scikit-learn 📘, 
-                  I'm exploring machine learning frameworks to broaden my skill set.
-                </p>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  I believe in continuous learning 📚 and strive to apply AI and data science ethically ✨ and creatively 🎨 
-                  to make a positive impact. My goal is to become a data-driven AI professional 🚀 capable of building 
-                  scalable, smart solutions 💡 across industries.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            {/* Main About Content */}
+            <div className="md:col-span-2">
+              <Card className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:shadow-2xl hover:shadow-pink-500/20 hover:scale-105 duration-300">
+                <CardContent className="p-8">
+                  <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                    I'm a passionate and driven student specializing in Artificial Intelligence and Machine Learning 🤖, 
+                    with a strong foundation in Python programming 🐍 and a deep interest in data analytics 📊. 
+                    I enjoy turning complex datasets into meaningful insights and using intelligent algorithms to solve real-world problems 🌍.
+                  </p>
+                  <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                    With basics in Python libraries like Pandas 🐼, NumPy 🔢, Matplotlib 📈, and Scikit-learn 📘, 
+                    I'm exploring machine learning frameworks to broaden my skill set.
+                  </p>
+                  <p className="text-lg text-gray-300 leading-relaxed">
+                    I believe in continuous learning 📚 and strive to apply AI and data science ethically ✨ and creatively 🎨 
+                    to make a positive impact. My goal is to become a data-driven AI professional 🚀 capable of building 
+                    scalable, smart solutions 💡 across industries.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            
+            {/* Quick Facts Box */}
+            <div className="md:col-span-1">
+              <Card className="bg-gradient-to-br from-pink-500/20 to-purple-600/20 border-pink-500/50 hover:border-pink-500/80 transition-all hover:shadow-2xl hover:shadow-pink-500/30 hover:scale-105 duration-300">
+                <CardHeader>
+                  <CardTitle className="text-pink-400 text-xl font-bold">Quick Facts</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-200">B.Tech in AI & ML at Siddartha Institute</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-200">Multiple internships and certifications</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-200">Open source contributor</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-200">Award-winning presenter</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
@@ -274,43 +309,86 @@ const Index = () => {
           <div className="max-w-4xl mx-auto space-y-6">
             {[
               {
-                title: "Java Programming Internship",
-                company: "MicroIT",
-                duration: "May 2025 - June 2025",
-                description: "Completed a comprehensive 1-month Java programming internship focusing on core Java concepts and practical applications."
+                title: "Java Programming Intern",
+                company: "MICRO IT",
+                duration: "May 2025 - Jun 2025",
+                description: "Completed an intensive 1-month Java programming internship focused on core Java concepts and practical application development.",
+                highlights: [
+                  "Mastered Java fundamentals and OOP concepts",
+                  "Built console-based applications using Java",
+                  "Practiced data structures and algorithms in Java",
+                  "Worked on mini-projects involving file handling and exception management"
+                ]
               },
               {
-                title: "Python Programming",
+                title: "Python Programming Intern",
                 company: "PROG MASTER",
                 duration: "Jan 2024 - Feb 2024",
-                description: "A practical 2-month internship focused on building strong Python foundations with real-time mini-projects including password generator, file sorter, and weather checker using APIs."
+                description: "A practical 2-month internship focused on building strong Python foundations with real-time mini-projects.",
+                highlights: [
+                  "Developed real-time Python applications like a password generator, file sorter, and weather checker using APIs",
+                  "Implemented object-oriented programming, error handling, and file operations in real projects",
+                  "Practiced unit testing and debugging in collaborative sessions",
+                  "Participated in weekly mentor-led code reviews to enhance code structure and efficiency",
+                  "Gained exposure to automation scripts for basic system tasks and CSV data handling"
+                ]
               },
               {
-                title: "Web Development",
+                title: "Web Development Intern",
                 company: "CSEdge",
                 duration: "Mar 2024 - Apr 2024",
-                description: "Hands-on web development internship building responsive student management system with HTML, CSS, and JavaScript."
+                description: "Hands-on web development internship building responsive student management system with HTML, CSS, and JavaScript.",
+                highlights: [
+                  "Built a responsive student management system with HTML, CSS, and JavaScript",
+                  "Integrated form validation, CSS animations, and component-based UI for live user interaction",
+                  "Designed a functional portfolio site as a part of the capstone project",
+                  "Used GitHub for version control and deployed projects using GitHub Pages",
+                  "Collaborated with peers on UI improvements and accessibility fixes in daily stand-ups"
+                ]
               },
               {
                 title: "Open Source Contributor",
                 company: "GirlScript Summer of Code",
-                duration: "May 2024 - June 2024",
-                description: "Remote contributor to open-source repositories, fixing bugs and adding features to Python and frontend projects."
+                duration: "May 2024 - Jun 2024",
+                description: "Remote contributor to open-source repositories under mentor guidance.",
+                highlights: [
+                  "Fixed bugs and added new features to Python and frontend repositories",
+                  "Submitted pull requests with documentation, improving real-world open-source projects",
+                  "Contributed to beginner-friendly projects like to-do list apps, text editors, and weather apps",
+                  "Learned issue tracking, code versioning (Git), and collaboration tools (Slack, GitHub Projects)",
+                  "Engaged with a global community of developers, gaining real-world open-source experience"
+                ]
               },
               {
-                title: "SQL Workshop",
+                title: "SQL Workshop Participant",
                 company: "Infosys Springboard",
                 duration: "Aug 2024 - Sep 2024",
-                description: "Participated in SQL workshop solving real-time business queries using relational databases with focus on banking applications."
+                description: "Participated in SQL workshop solving real-time business queries using relational databases with focus on banking applications.",
+                highlights: [
+                  "Designed queries for a banking database to fetch customer transaction reports",
+                  "Used JOINs, subqueries, group functions, and nested conditions in hands-on tasks",
+                  "Performed data normalization and created ER diagrams to structure databases",
+                  "Understood how real companies use SQL to analyze customer behavior, sales trends, and fraud detection"
+                ]
               }
             ].map((exp, index) => (
-              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:shadow-lg hover:shadow-pink-500/20">
+              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:shadow-lg hover:shadow-pink-500/20 hover:scale-[1.02] duration-300">
                 <CardHeader>
                   <CardTitle className="text-pink-400">{exp.title}</CardTitle>
                   <CardDescription className="text-purple-300 font-medium">{exp.company} • {exp.duration}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-300">{exp.description}</p>
+                  <p className="text-gray-300 mb-4">{exp.description}</p>
+                  {exp.highlights && (
+                    <ul className="space-y-2">
+                      {exp.highlights.map((highlight, highlightIndex) => (
+                        <li key={highlightIndex} className="flex items-start space-x-2">
+                          <div className="w-1.5 h-1.5 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-gray-400 text-sm">{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </CardContent>
               </Card>
             ))}
