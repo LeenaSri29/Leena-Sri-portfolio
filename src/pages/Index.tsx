@@ -56,17 +56,23 @@ const Index = () => {
   };
 
   const skills = [
-    { name: "Python", level: 85 },
-    { name: "SQL", level: 80 },
-    { name: "Java (Basics)", level: 60 },
-    { name: "Machine Learning (Basics)", level: 70 },
-    { name: "Data Visualization", level: 75 },
-    { name: "Power BI", level: 70 },
-    { name: "Artificial Intelligence Basics", level: 65 },
-    { name: "HTML", level: 85 },
-    { name: "CSS", level: 80 },
-    { name: "JavaScript", level: 75 },
-    { name: "Excel", level: 90 }
+    { name: "Python", level: 85, color: "from-blue-500 to-blue-600" },
+    { name: "SQL", level: 80, color: "from-green-500 to-green-600" },
+    { name: "Java (Basics)", level: 60, color: "from-orange-500 to-orange-600" },
+    { name: "Machine Learning (Basics)", level: 70, color: "from-purple-500 to-purple-600" },
+    { name: "Data Visualization", level: 75, color: "from-cyan-500 to-cyan-600" },
+    { name: "Power BI", level: 70, color: "from-yellow-500 to-yellow-600" },
+    { name: "Artificial Intelligence Basics", level: 65, color: "from-red-500 to-red-600" },
+    { name: "HTML", level: 85, color: "from-pink-500 to-pink-600" },
+    { name: "CSS", level: 80, color: "from-indigo-500 to-indigo-600" },
+    { name: "JavaScript", level: 75, color: "from-emerald-500 to-emerald-600" },
+    { name: "Excel", level: 90, color: "from-teal-500 to-teal-600" }
+  ];
+
+  const languages = [
+    { language: "Telugu", level: 100, description: "Native fluency; can read, write, and speak professionally", color: "from-pink-500 to-pink-600" },
+    { language: "English", level: 85, description: "Proficient; can read, write, and speak with professional fluency", color: "from-blue-500 to-blue-600" },
+    { language: "Hindi", level: 70, description: "Conversational; can read, write, and speak with liberal fluency", color: "from-purple-500 to-purple-600" }
   ];
 
   const projects = [
@@ -292,7 +298,7 @@ const Index = () => {
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-3">
                   <div 
-                    className="bg-gradient-to-r from-pink-500 to-purple-600 h-3 rounded-full transition-all duration-1000 ease-out"
+                    className={`bg-gradient-to-r ${skill.color} h-3 rounded-full transition-all duration-1000 ease-out`}
                     style={{ width: `${skill.level}%` }}
                   ></div>
                 </div>
@@ -488,17 +494,21 @@ const Index = () => {
             Language Proficiency
           </h2>
           <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
-            {[
-              { language: "Telugu", level: "Native fluency", description: "Can read, write, and speak professionally" },
-              { language: "English", level: "Proficient", description: "Can read, write, and speak with professional fluency" },
-              { language: "Hindi", level: "Conversational", description: "Can read, write, and speak with liberal fluency" }
-            ].map((lang, index) => (
+            {languages.map((lang, index) => (
               <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-lg hover:shadow-pink-500/20 duration-300">
                 <CardHeader>
                   <CardTitle className="text-pink-400">{lang.language}</CardTitle>
-                  <CardDescription className="text-purple-300 font-medium">{lang.level}</CardDescription>
+                  <CardDescription className="text-purple-300 font-medium">{lang.level}%</CardDescription>
                 </CardHeader>
                 <CardContent>
+                  <div className="mb-4">
+                    <div className="w-full bg-gray-700 rounded-full h-3">
+                      <div 
+                        className={`bg-gradient-to-r ${lang.color} h-3 rounded-full transition-all duration-1000 ease-out`}
+                        style={{ width: `${lang.level}%` }}
+                      ></div>
+                    </div>
+                  </div>
                   <p className="text-gray-300">{lang.description}</p>
                 </CardContent>
               </Card>
