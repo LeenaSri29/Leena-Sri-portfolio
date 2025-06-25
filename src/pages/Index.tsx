@@ -65,7 +65,9 @@ const Index = () => {
     { name: "HTML", level: 85, color: "from-pink-500 to-pink-600" },
     { name: "CSS", level: 80, color: "from-indigo-500 to-indigo-600" },
     { name: "JavaScript", level: 75, color: "from-emerald-500 to-emerald-600" },
-    { name: "Excel", level: 90, color: "from-teal-500 to-teal-600" }
+    { name: "Excel", level: 90, color: "from-teal-500 to-teal-600" },
+    { name: "Git", level: 80, color: "from-gray-500 to-gray-600" },
+    { name: "GitHub", level: 85, color: "from-gray-700 to-gray-800" }
   ];
 
   const languages = [
@@ -477,31 +479,76 @@ const Index = () => {
           <div className="max-w-4xl mx-auto space-y-6">
             {[
               {
-                degree: "B.Tech - Computer Science (AI & ML)",
+                degree: "B.Tech in Computer Science (AI & ML)",
                 institution: "Siddartha Institute of Science and Technology",
-                duration: "2022 - Pursuing",
-                description: "Currently pursuing Bachelor's degree with specialization in Artificial Intelligence and Machine Learning. This comprehensive program covers advanced topics including machine learning algorithms, deep learning architectures, neural networks, computer vision, natural language processing, and data science methodologies. The curriculum integrates theoretical foundations with practical applications, preparing students for the evolving AI industry. During my academic journey, I have actively participated in various college-level and intercollegiate technical events that enhanced both my subject knowledge and presentation skills. I was awarded 1st Prize in a Paper Presentation competition at Siddartha Institute of Science and Technology as part of our departmental association event, and secured 3rd Prize in a PPT competition at Sree Rama Engineering College. I also participated in a National Level Quest Competition, which provided exposure to participants from across the country and deepened my understanding of core technical concepts."
+                duration: "2022 - Present",
+                status: "Pursuing",
+                description: "Currently pursuing Bachelor of Technology with specialization in Artificial Intelligence and Machine Learning. This comprehensive program covers advanced topics including machine learning algorithms, deep learning architectures, neural networks, computer vision, natural language processing, and data science methodologies. The curriculum integrates theoretical foundations with practical applications, preparing students for the evolving AI industry.",
+                achievements: [
+                  "1st Prize in Paper Presentation competition",
+                  "3rd Prize in PPT competition at Sree Rama Engineering College",
+                  "Participated in National Level Quest Competition",
+                  "Active contributor to departmental association events"
+                ]
               },
               {
                 degree: "Intermediate (MPC)",
                 institution: "Sri Chaitanya Junior College, Tirupati",
                 duration: "2020 - 2022",
-                description: "Completed Intermediate education in Mathematics, Physics, and Chemistry with outstanding academic performance, achieving 91% in March 2022. This rigorous program provided a strong foundation in analytical thinking, problem-solving, and scientific methodology essential for engineering studies. The mathematics curriculum covered calculus, algebra, and statistics, while physics explored mechanics, thermodynamics, and electromagnetism. Chemistry studies included organic, inorganic, and physical chemistry concepts. This multidisciplinary approach developed critical thinking skills and quantitative analysis capabilities that directly support my current AI and ML studies. The program emphasized both theoretical understanding and practical applications, preparing me for advanced technical education."
+                status: "Completed",
+                description: "Completed Intermediate education in Mathematics, Physics, and Chemistry with outstanding academic performance, building a strong foundation for engineering studies. This rigorous program provided a strong foundation in analytical thinking, problem-solving, and scientific methodology essential for engineering studies.",
+                achievements: [
+                  "Achieved 91% in March 2022",
+                  "Strong performance in core subjects",
+                  "Consistent academic excellence",
+                  "Foundation for engineering studies"
+                ]
               },
               {
-                degree: "SSC",
+                degree: "Secondary School Certificate (SSC)",
                 institution: "Sri Venkateswara Children's High School, Tirupati",
                 duration: "2020",
-                description: "Completed Secondary School Certificate with exceptional academic performance, achieving an outstanding 99% in March 2020. This achievement reflects consistent academic excellence and strong foundational knowledge across all subjects including mathematics, sciences, languages, and social studies. The comprehensive curriculum developed essential skills in logical reasoning, communication, and analytical thinking. The high academic performance demonstrates dedication to learning, time management skills, and the ability to excel under academic pressure. This strong educational foundation provided the confidence and knowledge base necessary for pursuing advanced studies in science and technology fields."
+                status: "Completed",
+                description: "Completed secondary education with exceptional academic performance, demonstrating strong foundational knowledge and consistent study habits. This achievement reflects consistent academic excellence and strong foundational knowledge across all subjects including mathematics, sciences, languages, and social studies.",
+                achievements: [
+                  "Achieved outstanding 99% in March 2020",
+                  "Top performer in the batch",
+                  "Strong foundation in all subjects",
+                  "Excellence in academics from early age"
+                ]
               }
             ].map((edu, index) => (
               <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:shadow-lg hover:shadow-pink-500/20">
                 <CardHeader>
-                  <CardTitle className="text-pink-400">{edu.degree}</CardTitle>
+                  <div className="flex justify-between items-start mb-2">
+                    <CardTitle className="text-pink-400">{edu.degree}</CardTitle>
+                    <Badge 
+                      variant={edu.status === "Pursuing" ? "default" : "secondary"}
+                      className={edu.status === "Pursuing" 
+                        ? "bg-green-500/20 text-green-300 hover:bg-green-500/30" 
+                        : "bg-blue-500/20 text-blue-300 hover:bg-blue-500/30"
+                      }
+                    >
+                      {edu.status}
+                    </Badge>
+                  </div>
                   <CardDescription className="text-purple-300 font-medium">{edu.institution} • {edu.duration}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-300">{edu.description}</p>
+                  <p className="text-gray-300 mb-4">{edu.description}</p>
+                  {edu.achievements && (
+                    <div>
+                      <h4 className="text-pink-400 font-semibold mb-2">Key Achievements:</h4>
+                      <ul className="space-y-2">
+                        {edu.achievements.map((achievement, achievementIndex) => (
+                          <li key={achievementIndex} className="flex items-start space-x-2">
+                            <div className="w-1.5 h-1.5 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-gray-400 text-sm">{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -613,7 +660,7 @@ const Index = () => {
                 description: "Professional communication skills certification covering presentation skills, corporate communication, and technical documentation."
               }
             ].map((cert, index) => (
-              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-lg hover:shadow-pink-500/20 duration-300">
+              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-lg hover:shadow-pink-500/20">
                 <CardHeader>
                   <CardTitle className="text-pink-400">{cert.title}</CardTitle>
                   <CardDescription className="text-purple-300 font-medium">{cert.issuer} • {cert.date}</CardDescription>
