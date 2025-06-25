@@ -59,15 +59,11 @@ const Index = () => {
     { name: "SQL", level: 80, color: "from-green-500 to-green-600" },
     { name: "Java (Basics)", level: 60, color: "from-orange-500 to-orange-600" },
     { name: "Machine Learning (Basics)", level: 70, color: "from-purple-500 to-purple-600" },
-    { name: "Data Visualization", level: 75, color: "from-cyan-500 to-cyan-600" },
-    { name: "Power BI", level: 70, color: "from-yellow-500 to-yellow-600" },
     { name: "Artificial Intelligence Basics", level: 65, color: "from-red-500 to-red-600" },
     { name: "HTML", level: 85, color: "from-pink-500 to-pink-600" },
     { name: "CSS", level: 80, color: "from-indigo-500 to-indigo-600" },
     { name: "JavaScript", level: 75, color: "from-emerald-500 to-emerald-600" },
     { name: "Excel", level: 90, color: "from-teal-500 to-teal-600" },
-    { name: "Git", level: 80, color: "from-gray-500 to-gray-600" },
-    { name: "GitHub", level: 85, color: "from-gray-700 to-gray-800" }
   ];
 
   const languages = [
@@ -556,36 +552,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Language Proficiency */}
-      <section className="py-20 px-6 relative">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">
-            <Globe className="inline-block mr-3 mb-1" />
-            Language Proficiency
-          </h2>
-          <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
-            {languages.map((lang, index) => (
-              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-lg hover:shadow-pink-500/20 duration-300">
-                <CardHeader>
-                  <CardTitle className="text-pink-400">{lang.language}</CardTitle>
-                  <CardDescription className="text-purple-300 font-medium">{lang.level}%</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="mb-4">
-                    <div className="w-full bg-gray-700 rounded-full h-3">
-                      <div 
-                        className={`bg-gradient-to-r ${lang.color} h-3 rounded-full transition-all duration-1000 ease-out`}
-                        style={{ width: `${lang.level}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                  <p className="text-gray-300">{lang.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Certifications Section */}
       <section className="py-20 px-6 relative">
@@ -674,6 +640,39 @@ const Index = () => {
         </div>
       </section>
 
+    {/* Language Proficiency */}
+      <section className="py-20 px-6 relative">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">
+            <Globe className="inline-block mr-3 mb-1" />
+            Language Proficiency
+          </h2>
+          <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
+            {languages.map((lang, index) => (
+              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-lg hover:shadow-pink-500/20 duration-300">
+                <CardHeader>
+                  <CardTitle className="text-pink-400">{lang.language}</CardTitle>
+                  <CardDescription className="text-purple-300 font-medium">{lang.level}%</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="mb-4">
+                    <div className="w-full bg-gray-700 rounded-full h-3">
+                      <div 
+                        className={`bg-gradient-to-r ${lang.color} h-3 rounded-full transition-all duration-1000 ease-out`}
+                        style={{ width: `${lang.level}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                  <p className="text-gray-300">{lang.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6 bg-black/30 relative">
         <div className="container mx-auto">
@@ -747,7 +746,7 @@ const Index = () => {
       <footer className="py-8 px-6 border-t border-pink-500/20 relative">
         <div className="container mx-auto text-center">
           <p className="text-gray-400">
-            © 2024 Thupakula Leena Sri. Made with ❤️ and passion for AI & ML.
+            All rights to Thupakula Leena Sri 🔍 | AI Enthusiast 🤖 | Data-Driven 📊 | Code with 💻 + ❤️
           </p>
         </div>
       </footer>
