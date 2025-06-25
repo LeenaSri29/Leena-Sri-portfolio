@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -255,26 +254,26 @@ const Index = () => {
             
             {/* Quick Facts Box */}
             <div className="md:col-span-1">
-              <Card className="bg-gradient-to-br from-pink-500/20 to-purple-600/20 border-pink-500/50 hover:border-pink-500/80 transition-all hover:shadow-2xl hover:shadow-pink-500/30 hover:scale-105 duration-300">
+              <Card className="bg-gray-900/80 border-pink-500/50 hover:border-pink-500/80 transition-all hover:shadow-2xl hover:shadow-pink-500/30 hover:scale-105 duration-300">
                 <CardHeader>
                   <CardTitle className="text-pink-400 text-xl font-bold">Quick Facts</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-200">B.Tech in AI & ML at Siddartha Institute</p>
+                    <p className="text-pink-300 font-medium">B.Tech in AI & ML at Siddartha Institute</p>
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-200">Multiple internships and certifications</p>
+                    <p className="text-pink-300 font-medium">Multiple internships and certifications</p>
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-200">Open source contributor</p>
+                    <p className="text-pink-300 font-medium">Open source contributor</p>
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-pink-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-200">Award-winning presenter</p>
+                    <p className="text-pink-300 font-medium">Award-winning presenter</p>
                   </div>
                 </CardContent>
               </Card>
