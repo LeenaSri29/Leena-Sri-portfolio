@@ -4,8 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Separator } from "@/components/ui/separator";
-import { Download, ExternalLink, Github, Linkedin, Mail, Phone, MapPin, Code, Brain, Database, ChevronDown, Send, Globe } from 'lucide-react';
+import { Download, ExternalLink, Github, Linkedin, Mail, Phone, Globe, Code, Send } from 'lucide-react';
 import { toast } from "@/hooks/use-toast";
 
 const Index = () => {
@@ -73,44 +72,6 @@ const Index = () => {
     { language: "Telugu", level: 100, description: "Native fluency; can read, write, and speak professionally", color: "from-pink-500 to-pink-600" },
     { language: "English", level: 85, description: "Proficient; can read, write, and speak with professional fluency", color: "from-blue-500 to-blue-600" },
     { language: "Hindi", level: 70, description: "Conversational; can read, write, and speak with liberal fluency", color: "from-purple-500 to-purple-600" }
-  ];
-
-  const projects = [
-    {
-      title: "🍴 Foodielicious Cart Flow App",
-      description: "An interactive food ordering and cart flow web application built for user-friendly restaurant ordering experiences. Developed using Lovable AI with no-code approach, featuring modern UI/UX design and seamless cart management.",
-      liveUrl: "https://foodielicious-cart-flow.lovable.app/login",
-      codeUrl: "#",
-      tags: ["React", "TypeScript", "UI/UX", "No-Code AI"]
-    },
-    {
-      title: "🔐 Password Generator",
-      description: "A secure password generator tool that creates strong, customizable passwords with options for length, character types, and complexity. Built with user-friendly interface and real-time password strength validation.",
-      liveUrl: "https://leenasri29.github.io/Password-Generator-for-Micro-IT/",
-      codeUrl: "https://github.com/LeenaSri29/Password-Generator-for-Micro-IT",
-      tags: ["HTML", "CSS", "JavaScript", "Security"]
-    },
-    {
-      title: "🔐 Digital Locker & Timer",
-      description: "A secure digital locker application with timer functionality for managing digital assets and time-based operations.",
-      liveUrl: "https://leenasri29.github.io/digital-locker/",
-      codeUrl: "https://github.com/LeenaSri29/digital-locker",
-      tags: ["HTML", "CSS", "JavaScript"]
-    },
-    {
-      title: "🔢 Advanced Calculator",
-      description: "A feature-rich calculator application with advanced mathematical operations and user-friendly interface.",
-      liveUrl: "https://leenasri29.github.io/Calculator-for-Micro-IT/",
-      codeUrl: "https://github.com/LeenaSri29/Calculator-for-Micro-IT",
-      tags: ["HTML", "CSS", "JavaScript"]
-    },
-    {
-      title: "🦋 Marvel Butterfly Classification",
-      description: "Machine learning project using deep learning and TensorFlow for butterfly species classification with computer vision techniques.",
-      liveUrl: "#",
-      codeUrl: "#",
-      tags: ["Python", "TensorFlow", "Deep Learning", "Computer Vision"]
-    }
   ];
 
   return (
@@ -407,7 +368,36 @@ const Index = () => {
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">Projects</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {projects.map((project, index) => (
+            {[
+              {
+                title: "🍴 Foodielicious Cart Flow App",
+                description: "An interactive food ordering and cart flow web application built for user-friendly restaurant ordering experiences. This comprehensive project was developed using Lovable AI with a no-code approach, demonstrating modern web development capabilities and innovative problem-solving. The application features a complete user journey from menu browsing to order completion, including user authentication, dynamic cart management, real-time order tracking, and responsive design. The project showcases advanced UI/UX design principles, state management, and seamless integration of various frontend technologies. Built with React and TypeScript, it implements modern design patterns and provides an intuitive interface for both customers and restaurant management.",
+                liveUrl: "https://foodielicious-cart-flow.lovable.app/login",
+                codeUrl: "https://github.com/LeenaSri29/foodielicious-cart-flow",
+                tags: ["React", "TypeScript", "UI/UX", "No-Code AI", "Lovable"]
+              },
+              {
+                title: "🔐 Password Generator",
+                description: "A comprehensive security tool that creates strong, customizable passwords with advanced options for length, character types, and complexity requirements. This project demonstrates proficiency in JavaScript programming, user interface design, and cybersecurity best practices. The application features real-time password strength validation, multiple customization options including uppercase/lowercase letters, numbers, and special characters, and an intuitive user interface. The tool promotes better cybersecurity practices by helping users avoid weak or reused passwords, making it ideal for both personal use and educational purposes. Built with clean, maintainable code and responsive design principles.",
+                liveUrl: "https://leenasri29.github.io/Password-Generator-for-Micro-IT/",
+                codeUrl: "https://github.com/LeenaSri29/Password-Generator-for-Micro-IT",
+                tags: ["HTML", "CSS", "JavaScript", "Security", "Web Development"]
+              },
+              {
+                title: "🔐 Digital Locker & Timer",
+                description: "A sophisticated digital locker application with integrated timer functionality designed for secure digital asset management and time-based operations. This project combines security concepts with practical utility, featuring user authentication, secure storage mechanisms, and time-based access controls. The application demonstrates advanced JavaScript programming, local storage management, and user experience design. It includes features like automated locking/unlocking based on timer settings, secure password protection, and intuitive navigation. The project showcases understanding of security principles, data protection, and user-centric design while providing practical utility for managing digital resources with time constraints.",
+                liveUrl: "https://leenasri29.github.io/digital-locker/",
+                codeUrl: "https://github.com/LeenaSri29/digital-locker",
+                tags: ["HTML", "CSS", "JavaScript", "Security", "Timer"]
+              },
+              {
+                title: "🔢 Advanced Calculator",
+                description: "A feature-rich calculator application with advanced mathematical operations, scientific functions, and an intuitive user interface. This project demonstrates strong programming fundamentals, mathematical algorithm implementation, and user experience design. The calculator supports basic arithmetic operations, advanced mathematical functions, memory operations, and error handling. Built with clean, modular code architecture, it features responsive design for various screen sizes, keyboard input support, and real-time calculation display. The project showcases proficiency in JavaScript programming, DOM manipulation, and creating practical utility applications with professional-grade user interfaces.",
+                liveUrl: "https://leenasri29.github.io/Calculator-for-Micro-IT/",
+                codeUrl: "https://github.com/LeenaSri29/Calculator-for-Micro-IT",
+                tags: ["HTML", "CSS", "JavaScript", "Mathematics", "Web Development"]
+              }
+            ].map((project, index) => (
               <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20 duration-300">
                 <CardHeader>
                   <CardTitle className="text-pink-400">{project.title}</CardTitle>
@@ -457,19 +447,19 @@ const Index = () => {
                 degree: "B.Tech - Computer Science (AI & ML)",
                 institution: "Siddartha Institute of Science and Technology",
                 duration: "2022 - Pursuing",
-                description: "Currently pursuing Bachelor's degree with specialization in Artificial Intelligence and Machine Learning. Actively participated in technical events, won 1st Prize in Paper Presentation and 3rd Prize in PPT competition."
+                description: "Currently pursuing Bachelor's degree with specialization in Artificial Intelligence and Machine Learning. This comprehensive program covers advanced topics including machine learning algorithms, deep learning architectures, neural networks, computer vision, natural language processing, and data science methodologies. The curriculum integrates theoretical foundations with practical applications, preparing students for the evolving AI industry. During my academic journey, I have actively participated in various college-level and intercollegiate technical events that enhanced both my subject knowledge and presentation skills. I was awarded 1st Prize in a Paper Presentation competition at Siddartha Institute of Science and Technology as part of our departmental association event, and secured 3rd Prize in a PPT competition at Sree Rama Engineering College. I also participated in a National Level Quest Competition, which provided exposure to participants from across the country and deepened my understanding of core technical concepts."
               },
               {
                 degree: "Intermediate (MPC)",
                 institution: "Sri Chaitanya Junior College, Tirupati",
                 duration: "2020 - 2022",
-                description: "Completed Intermediate with outstanding 91% score, demonstrating strong academic performance in Mathematics, Physics, and Chemistry."
+                description: "Completed Intermediate education in Mathematics, Physics, and Chemistry with outstanding academic performance, achieving 91% in March 2022. This rigorous program provided a strong foundation in analytical thinking, problem-solving, and scientific methodology essential for engineering studies. The mathematics curriculum covered calculus, algebra, and statistics, while physics explored mechanics, thermodynamics, and electromagnetism. Chemistry studies included organic, inorganic, and physical chemistry concepts. This multidisciplinary approach developed critical thinking skills and quantitative analysis capabilities that directly support my current AI and ML studies. The program emphasized both theoretical understanding and practical applications, preparing me for advanced technical education."
               },
               {
                 degree: "SSC",
                 institution: "Sri Venkateswara Children's High School, Tirupati",
                 duration: "2020",
-                description: "Completed Secondary School Certificate with exceptional 99% score, reflecting excellent foundational academic performance."
+                description: "Completed Secondary School Certificate with exceptional academic performance, achieving an outstanding 99% in March 2020. This achievement reflects consistent academic excellence and strong foundational knowledge across all subjects including mathematics, sciences, languages, and social studies. The comprehensive curriculum developed essential skills in logical reasoning, communication, and analytical thinking. The high academic performance demonstrates dedication to learning, time management skills, and the ability to excel under academic pressure. This strong educational foundation provided the confidence and knowledge base necessary for pursuing advanced studies in science and technology fields."
               }
             ].map((edu, index) => (
               <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:shadow-lg hover:shadow-pink-500/20">
