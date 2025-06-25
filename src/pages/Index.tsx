@@ -291,51 +291,84 @@ const Index = () => {
                 title: "Python Programming Intern",
                 company: "PROG MASTER",
                 duration: "Jan 2024 - Feb 2024",
-                description: "A practical 2-month internship focused on building strong Python foundations with real-time mini-projects.",
+                description: "A practical 2-month internship focused on building strong Python foundations with real-time mini-projects. Developed applications like password generator, file sorter, and weather checker using APIs.",
                 highlights: [
-                  "Developed real-time Python applications like a password generator, file sorter, and weather checker using APIs",
-                  "Implemented object-oriented programming, error handling, and file operations in real projects",
-                  "Practiced unit testing and debugging in collaborative sessions",
-                  "Participated in weekly mentor-led code reviews to enhance code structure and efficiency",
-                  "Gained exposure to automation scripts for basic system tasks and CSV data handling"
+                  "Implemented OOP, error handling, and file operations",
+                  "Practiced unit testing and debugging",
+                  "Weekly mentor-led code reviews",
+                  "Automation scripts for system tasks"
                 ]
               },
               {
                 title: "Web Development Intern",
                 company: "CSEdge",
                 duration: "Mar 2024 - Apr 2024",
-                description: "Hands-on web development internship building responsive student management system with HTML, CSS, and JavaScript.",
+                description: "Hands-on web development internship with real-time projects and team collaboration. Built responsive applications with modern web technologies.",
                 highlights: [
-                  "Built a responsive student management system with HTML, CSS, and JavaScript",
-                  "Integrated form validation, CSS animations, and component-based UI for live user interaction",
-                  "Designed a functional portfolio site as a part of the capstone project",
-                  "Used GitHub for version control and deployed projects using GitHub Pages",
-                  "Collaborated with peers on UI improvements and accessibility fixes in daily stand-ups"
+                  "Built responsive student management system",
+                  "Integrated form validation and CSS animations",
+                  "Used GitHub for version control",
+                  "Deployed projects using GitHub Pages"
                 ]
               },
               {
                 title: "Open Source Contributor",
                 company: "GirlScript Summer of Code",
                 duration: "May 2024 - Jun 2024",
-                description: "Remote contributor to open-source repositories under mentor guidance.",
+                description: "Remote contributor to open-source repositories under mentor guidance. Contributed to Python and frontend projects with global developer community.",
                 highlights: [
-                  "Fixed bugs and added new features to Python and frontend repositories",
-                  "Submitted pull requests with documentation, improving real-world open-source projects",
-                  "Contributed to beginner-friendly projects like to-do list apps, text editors, and weather apps",
-                  "Learned issue tracking, code versioning (Git), and collaboration tools (Slack, GitHub Projects)",
-                  "Engaged with a global community of developers, gaining real-world open-source experience"
+                  "Fixed bugs and added new features",
+                  "Submitted pull requests with documentation",
+                  "Learned Git versioning and collaboration tools",
+                  "Engaged with global developer community"
                 ]
               },
               {
                 title: "SQL Workshop Participant",
-                company: "Infosys Springboard",
+                company: "INFOSYS SPRINGBOARD",
                 duration: "Aug 2024 - Sep 2024",
-                description: "Participated in SQL workshop solving real-time business queries using relational databases with focus on banking applications.",
+                description: "Participated in comprehensive SQL workshop solving real-time business queries using relational databases for banking and business applications. Gained hands-on experience with complex database operations and query optimization.",
                 highlights: [
-                  "Designed queries for a banking database to fetch customer transaction reports",
-                  "Used JOINs, subqueries, group functions, and nested conditions in hands-on tasks",
-                  "Performed data normalization and created ER diagrams to structure databases",
-                  "Understood how real companies use SQL to analyze customer behavior, sales trends, and fraud detection"
+                  "Designed complex queries for banking databases",
+                  "Used JOINs, subqueries, and group functions",
+                  "Data normalization and ER diagrams",
+                  "Understanding of real-world SQL applications"
+                ]
+              },
+              {
+                title: "Student Ambassador",
+                company: "Microsoft Learn",
+                duration: "2024",
+                description: "Participated in Ambassador Challenge focusing on Azure fundamentals and cloud computing basics. Completed comprehensive training on Microsoft Azure services and cloud technologies.",
+                highlights: [
+                  "Unlocked Azure basics certification",
+                  "Learned cloud computing fundamentals",
+                  "Explored Azure services and solutions",
+                  "Gained knowledge in cloud deployment strategies"
+                ]
+              },
+              {
+                title: "AI Course Participant",
+                company: "Great Learning",
+                duration: "2024",
+                description: "Successfully completed Introduction to Artificial Intelligence course covering fundamental AI concepts, machine learning basics, and practical applications in various industries.",
+                highlights: [
+                  "Mastered AI fundamentals and concepts",
+                  "Learned machine learning algorithms",
+                  "Explored AI applications in real-world scenarios",
+                  "Gained certification in AI introduction"
+                ]
+              },
+              {
+                title: "Networking Workshop Participant",
+                company: "NetworkGeek Chennai",
+                duration: "2024",
+                description: "Actively participated in computer networking basics session covering network protocols, architectures, and security fundamentals. Gained practical knowledge of network configuration and troubleshooting.",
+                highlights: [
+                  "Learned network protocols and architectures",
+                  "Understanding of TCP/IP and OSI models",
+                  "Network security and troubleshooting basics",
+                  "Hands-on experience with network tools"
                 ]
               }
             ].map((exp, index) => (
@@ -500,6 +533,93 @@ const Index = () => {
                     </div>
                   </div>
                   <p className="text-gray-300">{lang.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section className="py-20 px-6 relative">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 text-pink-400">Certifications</h2>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: "Java Programming",
+                issuer: "MICRO IT",
+                date: "June 2025",
+                description: "Comprehensive Java programming certification covering core Java concepts, object-oriented programming, and practical application development."
+              },
+              {
+                title: "Data Plus Overview Course",
+                issuer: "TCS Master Craft",
+                date: "2024",
+                description: "Advanced data analytics and processing course focusing on data management, analysis techniques, and business intelligence applications."
+              },
+              {
+                title: "Generative AI",
+                issuer: "Google Cloud",
+                date: "2024",
+                description: "Comprehensive certification in Generative AI covering machine learning models, neural networks, and practical applications of generative artificial intelligence technologies."
+              },
+              {
+                title: "Azure Basics - Ambassador Challenge",
+                issuer: "Microsoft Learn",
+                date: "2024",
+                description: "Microsoft Azure fundamentals certification covering cloud computing basics, Azure services, and cloud deployment strategies."
+              },
+              {
+                title: "Git and GitHub - Version Control Strategies",
+                issuer: "Microsoft Learn",
+                date: "2024",
+                description: "Comprehensive guide to Git and GitHub covering version control strategies, collaboration workflows, and repository management."
+              },
+              {
+                title: "Introduction to Artificial Intelligence",
+                issuer: "Great Learning",
+                date: "2024",
+                description: "Foundational AI course covering machine learning algorithms, AI applications, and practical implementation in various industries."
+              },
+              {
+                title: "Computer Networking Basics",
+                issuer: "NetworkGeek Chennai",
+                date: "2024",
+                description: "Comprehensive networking course covering network protocols, architectures, security fundamentals, and practical troubleshooting."
+              },
+              {
+                title: "SQL Case Study - SQL Workshop",
+                issuer: "Infosys Springboard",
+                date: "September 2024",
+                description: "Advanced SQL workshop with real-world case studies, complex query optimization, and database management for business applications."
+              },
+              {
+                title: "Web Development",
+                issuer: "CSEdge",
+                date: "April 2024",
+                description: "Comprehensive certification in modern web development technologies including HTML, CSS, JavaScript, and responsive design principles."
+              },
+              {
+                title: "Python Programming",
+                issuer: "PROG MASTER",
+                date: "February 2024",
+                description: "Advanced Python programming certification covering OOP, data structures, algorithms, and practical application development."
+              },
+              {
+                title: "Communication Skills",
+                issuer: "TCS iON",
+                date: "August 2023",
+                description: "Professional communication skills certification covering presentation skills, corporate communication, and technical documentation."
+              }
+            ].map((cert, index) => (
+              <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-lg hover:shadow-pink-500/20 duration-300">
+                <CardHeader>
+                  <CardTitle className="text-pink-400">{cert.title}</CardTitle>
+                  <CardDescription className="text-purple-300 font-medium">{cert.issuer} • {cert.date}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-300">{cert.description}</p>
                 </CardContent>
               </Card>
             ))}
