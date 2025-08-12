@@ -427,7 +427,14 @@ const Index = () => {
                 liveUrl: "https://leenasri29.github.io/Calculator-for-Micro-IT/",
                 codeUrl: "https://github.com/LeenaSri29/Calculator-for-Micro-IT",
                 tags: ["HTML", "CSS", "JavaScript", "Mathematics", "Web Development"]
-              }
+              },
+              {
+                title: "Enchanted Wings Butterfly Classifier",
+                description:"An AI-based butterfly species classifier using deep learning models. Upload an image of a butterfly and get instant predictions along with detailed species information. Built with Python, TensorFlow, and Flask/Streamlit.",
+                tags: ["Python", "Deep Learning", "Image Classification", "AI", "TensorFlow"],
+                liveDemo: "https://your-live-link.com", // Deploy or remove if not live
+                sourceCode: "https://github.com/LeenaSri29/Enchanted_Wings_Butterfly_classifier"
+              } 
             ].map((project, index) => (
               <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20 duration-300">
                 <CardHeader>
@@ -755,3 +762,4 @@ const Index = () => {
 };
 
 export default Index;
+
