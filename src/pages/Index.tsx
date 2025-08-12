@@ -427,14 +427,7 @@ const Index = () => {
                 liveUrl: "https://leenasri29.github.io/Calculator-for-Micro-IT/",
                 codeUrl: "https://github.com/LeenaSri29/Calculator-for-Micro-IT",
                 tags: ["HTML", "CSS", "JavaScript", "Mathematics", "Web Development"]
-              },
-              {
-                title: "Enchanted Wings Butterfly Classifier",
-                description:"A deep learning–powered image classification system built to identify butterfly species from images with high accuracy. This project uses a convolutional neural network (CNN) trained on a curated dataset of butterfly images to distinguish between multiple species. Users can upload a butterfly image, and the model instantly predicts its species while providing confidence scores. The application integrates Python, TensorFlow, and OpenCV for image processing, paired with a simple web interface for smooth interaction. It showcases practical AI deployment, dataset preprocessing, and model evaluation, highlighting expertise in computer vision and applied machine learning.",
-                tags: ["Python", "Deep Learning", "Image Classification", "AI", "TensorFlow"],
-                liveDemo: "https://your-live-link.com", // Deploy or remove if not live
-                codeUrl: "https://github.com/LeenaSri29/Enchanted_Wings_Butterfly_classifier"
-              } 
+              }
             ].map((project, index) => (
               <Card key={index} className="bg-gray-900/50 border-pink-500/30 hover:border-pink-500/60 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20 duration-300">
                 <CardHeader>
